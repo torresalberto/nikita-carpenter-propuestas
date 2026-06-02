@@ -1,0 +1,24 @@
+# ─── Test / scratch files ───
+_test_*.html
+_todo_*.md
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ─── Screenshots (local reference, not for the client) ───
+# Uncomment the next 3 lines if you DON'T want screenshots in the repo:
+# screenshots/
+# screenshots_v2/
+# screenshots_v3/
+
+# ─── Python / server logs ───
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# ─── OS junk ───
+.directory
+.Trash-*
