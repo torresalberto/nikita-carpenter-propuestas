@@ -1,6 +1,6 @@
-# Nikita Carpenter — Proposal 02 · MODERNISTA
+# Nikita Carpenter — Portfolio Website
 
-## Status: 🚧 CLONE OF PROPOSAL 01 (awaiting design direction)
+## Status: ✅ COMPLETE & DELIVERY-READY
 All 4 polish phases finished. No placeholder content, no duplicate photos, real WhatsApp number wired up. Last reviewed: 2026-06-01.
 
 ---

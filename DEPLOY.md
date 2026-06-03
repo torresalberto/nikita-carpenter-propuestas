@@ -58,7 +58,7 @@ git push -u origin main
 5. Espera 1–2 minutos. Tu sitio estará en:
    ```
    https://TU-USUARIO.github.io/NOMBRE-REPO/
-   https://TU-USUARIO.github.io/NOMBRE-REPO/proposal-2-modernista/
+   https://TU-USUARIO.github.io/NOMBRE-REPO/proposal-2-cuaderno/
    https://TU-USUARIO.github.io/NOMBRE-REPO/proposal-3-russian-craft/
    ```
 
