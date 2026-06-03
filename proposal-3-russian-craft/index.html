@@ -703,65 +703,10 @@ h1, h2, h3, h4 {
   opacity: 0.7;
 }
 
-/* ─── ROOM OVERLAY ─── */
-.room-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: var(--cream);
-  overflow-y: auto;
-  transform: translateY(100%);
-  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-}
-.room-overlay.active { transform: translateY(0); }
 
-.room-overlay-head {
-  position: sticky;
-  top: 0;
-  background: var(--cream);
-  border-bottom: 1px solid var(--gold);
-  padding: 32px 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
-}
 
-.room-overlay-title {
-  font-size: 56px;
-  font-weight: 600;
-  color: var(--red);
-  font-family: 'Cormorant Garamond', serif;
-}
-.room-overlay-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 18px;
-  color: var(--ink-soft);
-  margin-top: 4px;
-}
 
-.room-overlay-close {
-  background: var(--red);
-  color: var(--cream);
-  border: 2px solid var(--gold);
-  width: 52px;
-  height: 52px;
-  font-size: 20px;
-  cursor: pointer;
-  font-weight: 700;
-  border-radius: 50%;
-  transition: transform 0.2s;
-  font-family: 'Cormorant Garamond', serif;
-}
-.room-overlay-close:hover { transform: rotate(90deg); }
 
-.room-gallery {
-  padding: 64px 80px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 32px;
-}
 
 .photo-card {
   background: var(--papyrus);
@@ -921,7 +866,7 @@ h1, h2, h3, h4 {
 /* ─── Responsive ─── */
 @media (max-width: 900px) {
   .nav { padding: 16px 24px; }
-  .hero, .quality, .house-section, .footer, .room-overlay-head, .room-gallery { padding-left: 24px; padding-right: 24px; }
+  .hero, .quality, .house-section, .footer, .gallery-section { padding-left: 24px; padding-right: 24px; }
   .quality-grid, .house-scale { grid-template-columns: 1fr; }
   .house-illustration { height: auto; flex-direction: column; gap: 24px; }
   .matr { position: relative; left: auto !important; top: auto !important; }
@@ -1032,7 +977,7 @@ h1, h2, h3, h4 {
 <section class="house-section" id="casa">
   <div class="house-intro">
     <h2 class="reveal">Explora la <em>casa</em></h2>
-    <p class="reveal">Toca una habitación. Cada espacio tiene las piezas que mejor le quedan.</p>
+    <p class="reveal">Trece piezas en cinco комнат. Cada espacio tiene las que mejor le quedan.</p>
   </div>
 
   <div class="house-wrap">
@@ -1042,26 +987,31 @@ h1, h2, h3, h4 {
       <div class="matr matr-1" data-room="sala" tabindex="0">
         <div class="matr-scarf"></div>
         <div class="matr-name">Sala</div>
+        <div class="matr-name-ru">Сала</div>
         <div class="matr-count">2 piezas</div>
       </div>
       <div class="matr matr-2" data-room="comedor" tabindex="0">
         <div class="matr-scarf"></div>
         <div class="matr-name">Comedor</div>
+        <div class="matr-name-ru">Столовая</div>
         <div class="matr-count">4 piezas</div>
       </div>
       <div class="matr matr-3" data-room="oficina" tabindex="0">
         <div class="matr-scarf"></div>
         <div class="matr-name">Oficina</div>
+        <div class="matr-name-ru">Офис</div>
         <div class="matr-count">3 piezas</div>
       </div>
       <div class="matr matr-4" data-room="exterior" tabindex="0">
         <div class="matr-scarf"></div>
         <div class="matr-name">Exterior</div>
+        <div class="matr-name-ru">Экстерьер</div>
         <div class="matr-count">2 piezas</div>
       </div>
       <div class="matr matr-5" data-room="especial" tabindex="0">
         <div class="matr-scarf"></div>
         <div class="matr-name">Especial</div>
+        <div class="matr-name-ru">Особое</div>
         <div class="matr-count">2 piezas</div>
       </div>
     </div>
@@ -1085,8 +1035,171 @@ h1, h2, h3, h4 {
     </div>
     <div class="house-scale-item">
       <div class="house-scale-num">∞</div>
-      <div class="house-scale-label">Únicas</div>
+      <div class="house-scale-label">Unicas</div>
       <div class="house-scale-label-ru">единственные</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INLINE GALLERY (all 13 photos visible without clicking) ─── -->
+<section class="gallery-section">
+  <div class="gallery-section-inner">
+    <div class="gallery-room" data-room="sala">
+      <div class="gallery-room-head">
+        <h3 class="gallery-room-title">Sala <span class="gallery-room-title-ru">Сала</span></h3>
+        <span class="gallery-room-sub">Donde la familia se reune al final del dia</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="photo-card" data-photo-src="mesa_madera_sala_chica.jpeg" data-photo-name="Mesa de Centro - Forma Organica">
+          <img class="photo-card-img" src="mesa_madera_sala_chica.jpeg" alt="Mesa de Centro - Forma Organica" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Mesa de Centro - Forma Organica</span>
+            <button class="wa-btn" data-src="mesa_madera_sala_chica.jpeg" data-name="Mesa de Centro - Forma Organica" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="photo-card" data-photo-src="mesa_irregular.jpeg" data-photo-name="Mesa Redonda - Pieza de Autor">
+          <img class="photo-card-img" src="mesa_irregular.jpeg" alt="Mesa Redonda - Pieza de Autor" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Mesa Redonda - Pieza de Autor</span>
+            <button class="wa-btn" data-src="mesa_irregular.jpeg" data-name="Mesa Redonda - Pieza de Autor" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-room" data-room="comedor">
+      <div class="gallery-room-head">
+        <h3 class="gallery-room-title">Comedor <span class="gallery-room-title-ru">Столовая</span></h3>
+        <span class="gallery-room-sub">La pieza que une a todos alrededor</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="photo-card" data-photo-src="mesa_sala.jpeg" data-photo-name="Mesa Familiar - Base X">
+          <img class="photo-card-img" src="mesa_sala.jpeg" alt="Mesa Familiar - Base X" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Mesa Familiar - Base X</span>
+            <button class="wa-btn" data-src="mesa_sala.jpeg" data-name="Mesa Familiar - Base X" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="photo-card" data-photo-src="mesa_sillas.jpeg" data-photo-name="Mesa Familiar - Con Sillas">
+          <img class="photo-card-img" src="mesa_sillas.jpeg" alt="Mesa Familiar - Con Sillas" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Mesa Familiar - Con Sillas</span>
+            <button class="wa-btn" data-src="mesa_sillas.jpeg" data-name="Mesa Familiar - Con Sillas" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="photo-card" data-photo-src="mesa_mediana.jpeg" data-photo-name="Mesa Mediana - Relleno de Resina">
+          <img class="photo-card-img" src="mesa_mediana.jpeg" alt="Mesa Mediana - Relleno de Resina" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Mesa Mediana - Relleno de Resina</span>
+            <button class="wa-btn" data-src="mesa_mediana.jpeg" data-name="Mesa Mediana - Relleno de Resina" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="photo-card" data-photo-src="mesa_madera.jpeg" data-photo-name="Mesa de Comedor - Madera Maciza">
+          <img class="photo-card-img" src="mesa_madera.jpeg" alt="Mesa de Comedor - Madera Maciza" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Mesa de Comedor - Madera Maciza</span>
+            <button class="wa-btn" data-src="mesa_madera.jpeg" data-name="Mesa de Comedor - Madera Maciza" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-room" data-room="oficina">
+      <div class="gallery-room-head">
+        <h3 class="gallery-room-title">Oficina <span class="gallery-room-title-ru">Офис</span></h3>
+        <span class="gallery-room-sub">Donde las ideas toman forma</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="photo-card" data-photo-src="mesa_oficina.jpeg" data-photo-name="Escritorio Ejecutivo">
+          <img class="photo-card-img" src="mesa_oficina.jpeg" alt="Escritorio Ejecutivo" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Escritorio Ejecutivo</span>
+            <button class="wa-btn" data-src="mesa_oficina.jpeg" data-name="Escritorio Ejecutivo" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="photo-card" data-photo-src="mesa_ofi.jpeg" data-photo-name="Mesa de Oficina - Base T">
+          <img class="photo-card-img" src="mesa_ofi.jpeg" alt="Mesa de Oficina - Base T" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Mesa de Oficina - Base T</span>
+            <button class="wa-btn" data-src="mesa_ofi.jpeg" data-name="Mesa de Oficina - Base T" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="photo-card" data-photo-src="mesa_chica.jpeg" data-photo-name="Mesa Compacta">
+          <img class="photo-card-img" src="mesa_chica.jpeg" alt="Mesa Compacta" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Mesa Compacta</span>
+            <button class="wa-btn" data-src="mesa_chica.jpeg" data-name="Mesa Compacta" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-room" data-room="exterior">
+      <div class="gallery-room-head">
+        <h3 class="gallery-room-title">Exterior <span class="gallery-room-title-ru">Экстерьер</span></h3>
+        <span class="gallery-room-sub">Resistente al sol, al agua, al tiempo</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="photo-card" data-photo-src="mesa_jardin.jpeg" data-photo-name="Mesa de Jardin">
+          <img class="photo-card-img" src="mesa_jardin.jpeg" alt="Mesa de Jardin" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Mesa de Jardin</span>
+            <button class="wa-btn" data-src="mesa_jardin.jpeg" data-name="Mesa de Jardin" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="photo-card" data-photo-src="mesa_exterior.jpeg" data-photo-name="Mesa de Patio">
+          <img class="photo-card-img" src="mesa_exterior.jpeg" alt="Mesa de Patio" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Mesa de Patio</span>
+            <button class="wa-btn" data-src="mesa_exterior.jpeg" data-name="Mesa de Patio" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-room" data-room="especial">
+      <div class="gallery-room-head">
+        <h3 class="gallery-room-title">Especial <span class="gallery-room-title-ru">Особое</span></h3>
+        <span class="gallery-room-sub">Piezas que no encontraras en ningun otro lugar</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="photo-card" data-photo-src="mesa_negro.jpeg" data-photo-name="Mesa River - Resina Azul">
+          <img class="photo-card-img" src="mesa_negro.jpeg" alt="Mesa River - Resina Azul" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Mesa River - Resina Azul</span>
+            <button class="wa-btn" data-src="mesa_negro.jpeg" data-name="Mesa River - Resina Azul" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="photo-card" data-photo-src="mesa_raw.jpeg" data-photo-name="Mesa Raw - Madera en Bruto">
+          <img class="photo-card-img" src="mesa_raw.jpeg" alt="Mesa Raw - Madera en Bruto" loading="lazy">
+          <div class="photo-card-bar">
+            <span class="photo-card-name">Mesa Raw - Madera en Bruto</span>
+            <button class="wa-btn" data-src="mesa_raw.jpeg" data-name="Mesa Raw - Madera en Bruto" aria-label="Preguntar por WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1116,17 +1229,6 @@ h1, h2, h3, h4 {
 </footer>
 
 <!-- ─── ROOM OVERLAY ─── -->
-<div class="room-overlay" id="roomOverlay">
-  <div class="room-overlay-head">
-    <div class="room-overlay-title-wrap">
-      <div class="room-overlay-title" id="roomTitle"></div>
-      <div class="room-overlay-sub" id="roomSub"></div>
-    </div>
-    <button class="room-overlay-close" id="roomClose">✕</button>
-  </div>
-  <div class="room-gallery" id="roomGallery"></div>
-</div>
-
 <!-- ─── LIGHTBOX ─── -->
 <div class="lightbox" id="lightbox">
   <img class="lightbox-img" id="lightboxImg" src="" alt="">
@@ -1168,59 +1270,21 @@ const rooms = {
 
 const wa = '5216144579884';
 
-const overlay = document.getElementById('roomOverlay');
-const overlayTitle = document.getElementById('roomTitle');
-const overlaySub = document.getElementById('roomSub');
-const overlayGallery = document.getElementById('roomGallery');
-const overlayClose = document.getElementById('roomClose');
+// (Matryoshka is now visual only - photos are inline in gallery section)
 
-document.querySelectorAll('.matr[data-room]').forEach(room => {
-  room.addEventListener('click', () => {
-    const data = rooms[room.dataset.room];
-    if (!data) return;
-    overlayTitle.textContent = data.title;
-    overlaySub.textContent = data.sub;
-    overlayGallery.innerHTML = '';
-
-    data.photos.forEach((photo) => {
-      const card = document.createElement('div');
-      card.className = 'photo-card';
-      card.innerHTML = `
-        <img class="photo-card-img" src="${photo.src}" alt="${photo.name}" loading="lazy">
-        <div class="photo-card-bar">
-          <span class="photo-card-name">${photo.name}</span>
-          <button class="wa-btn" data-src="${photo.src}" data-name="${photo.name}">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </button>
-        </div>
-      `;
-      card.querySelector('img').addEventListener('click', () => openLightbox(photo.src, photo.name));
-      card.querySelector('.wa-btn').addEventListener('click', (e) => {
-        e.stopPropagation();
-        const msg = encodeURIComponent(`Hola Nikita, me interesa: ${photo.name}`);
-        window.open(`https://wa.me/${wa}?text=${msg}`, '_blank');
-      });
-      overlayGallery.appendChild(card);
-    });
-
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+// Inline gallery: click photo to open lightbox, click WA button to chat
+document.querySelectorAll('.photo-card').forEach(card => {
+  const src  = card.dataset.photoSrc;
+  const name = card.dataset.photoName;
+  if (!src || !name) return;
+  const img = card.querySelector('.photo-card-img');
+  if (img) img.addEventListener('click', () => openLightbox(src, name));
+  const waBtn = card.querySelector('.wa-btn');
+  if (waBtn) waBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const msg = encodeURIComponent(`Hola Nikita, me interesa: ${name}`);
+    window.open(`https://wa.me/${wa}?text=${msg}`, '_blank');
   });
-
-  room.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); room.click(); }
-  });
-});
-
-overlayClose.addEventListener('click', () => {
-  overlay.classList.remove('active');
-  document.body.style.overflow = '';
-});
-overlay.addEventListener('click', (e) => {
-  if (e.target === overlay) {
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
 });
 
 // Lightbox
@@ -1242,8 +1306,6 @@ lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     lightbox.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
   }
 });
 
