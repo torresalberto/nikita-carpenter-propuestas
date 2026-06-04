@@ -86,7 +86,7 @@ body::before {
    ──────────────────────────────────────────── */
 .nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 60px; left: 0; right: 0;
   z-index: 100;
   padding: 1.25rem 2rem;
   display: flex;
@@ -149,7 +149,7 @@ body::before {
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 6rem 1.5rem 4rem;
+  padding: calc(6rem + 60px) 1.5rem 4rem;
   z-index: 1;
 }
 
@@ -849,7 +849,7 @@ body::before {
   .house { max-width: 100%; }
   .photo-card-img { height: 240px; }
   .house-scale { flex-wrap: wrap; gap: 1.5rem; }
-  .hero { padding: 5rem 1.25rem 3rem; }
+  .hero { padding: calc(5rem + 60px) 1.25rem 3rem; }
 }
 
 @media (max-width: 420px) {
