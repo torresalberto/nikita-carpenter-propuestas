@@ -46,9 +46,9 @@ Note: reveal-on-scroll elements will be hidden in headless captures because ther
 | `sala`     | 2 | Mesa de Centro — Forma Orgánica · Mesa Redonda — Pieza de Autor |
 | `comedor`  | 4 | Mesa Familiar — Base X · Mesa Familiar — Con Sillas · Mesa Mediana — Relleno de Resina · **Mesa de Comedor — Madera Maciza** |
 | `oficina`  | 3 | Escritorio Ejecutivo · Mesa de Oficina — Base T · Mesa Compacta |
-| `exterior` | 2 | Mesa de Jardín · Mesa de Patio |
-| `especial` | 2 | Mesa River — Resina Azul · Mesa Raw — Madera en Bruto |
-| **Total**  | **13** | matches the `13 PIEZAS` stat in the house-scale section |
+| `exterior` | 3 | Mesa de Jardín · Mesa de Patio · Banco de Jardín — Para el Atardecer |
+| `especial` | 4 | Mesa River — Resina Azul · Mesa Raw — Madera en Bruto · Silla Artesanal — Detalle del Asiento · Silla de Madera — Pieza de Autor |
+| **Total**  | **16** | matches the `16 PIEZAS` stat in the house-scale section |
 
 **Rule enforced:** no photo appears in more than one room. Every filename in `rooms.photos[].src` is unique across the whole object (verified by `grep -oE "src: '[^']+'" index.html | sort -u | wc -l` → 13).
 
@@ -56,7 +56,7 @@ Note: reveal-on-scroll elements will be hidden in headless captures because ther
 
 ## Conventions
 - **Spanish content**: hero quote, labels, room names, photo names. Hero stamps include Cyrillic `Москва` for narrative effect.
-- **Narrative**: Nikita learned carpentry IN Mexico (2014), not Russia. Moscow origin = his story, craft = Mexican.
+- **Narrative**: Nikita learned carpentry IN Mexico (2019), not Russia. Moscow origin = his story, craft = Mexican.
 - **Design language**: workshop journal aesthetic — warm wood tones, DM Serif Display + Fraunces + JetBrains Mono fonts, amber/gold accents, monospace labels, 3D isometric house with CSS transforms.
 - **No duplicate photos across rooms** (each photo appears in exactly one room).
 - **Footer pin** is an inline SVG (Material-style location pin) — do not replace with an emoji; the SVG inherits the `cream-dim` color via `currentColor` and matches the JetBrains Mono aesthetic.
@@ -67,8 +67,9 @@ Note: reveal-on-scroll elements will be hidden in headless captures because ther
 ## File Map
 ```
 /home/alb/projects/free-websites/Nikita_carpenter/
-├── index.html                       (1444 lines, the whole site)
+├── index.html                       (1377 lines, the whole site)
 ├── AGENTS.md                        (this file)
+├── banco_jardin.jpeg                ← NEW (Exterior: outdoor wooden bench)
 ├── mesa_chica.jpeg
 ├── mesa_exterior.jpeg
 ├── mesa_irregular.jpeg
@@ -82,6 +83,8 @@ Note: reveal-on-scroll elements will be hidden in headless captures because ther
 ├── mesa_raw.jpeg
 ├── mesa_sala.jpeg
 ├── mesa_sillas.jpeg
+├── silla_asiento.jpeg               ← NEW (Especial: chair seat close-up)
+├── silla_completa.jpeg              ← NEW (Especial: completed chair)
 ├── screenshots/                     (original reference renders)
 └── screenshots_v2/                  (post-polish verification renders)
     ├── 01-hero.png

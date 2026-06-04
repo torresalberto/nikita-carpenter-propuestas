@@ -36,9 +36,9 @@ Open `http://localhost:7777/`.
 | `sala`     | 3 | Mesa de Centro — Forma Orgánica · Mesa Redonda — Pieza de Autor · Mesa Round — Tronco con Resina |
 | `comedor`  | 4 | Mesa Familiar — Base X · Mesa Familiar — Con Sillas · Mesa Mediana — Relleno de Resina · Mesa de Comedor — Madera Maciza |
 | `oficina`  | 3 | Escritorio Ejecutivo · Mesa de Oficina — Base T · Mesa Compacta |
-| `exterior` | 2 | Mesa de Jardín · Mesa de Patio |
-| `especial` | 3 | Mesa River — Resina Azul · Mesa Raw — Madera en Bruto · Láminas de Nogal en Bruto |
-| **Total**  | **15** | matches the `15 PIEZAS` stat in the house-scale section |
+| `exterior` | 3 | Mesa de Jardín · Mesa de Patio · Banco de Jardín — Para el Atardecer |
+| `especial` | 5 | Mesa River — Resina Azul · Mesa Raw — Madera en Bruto · Láminas de Nogal en Bruto · Silla Artesanal — Detalle del Asiento · Silla de Madera — Pieza de Autor |
+| **Total**  | **18** | matches the `18 PIEZAS` stat in the house-scale section |
 
 **Rule enforced:** no photo appears in more than one room.
 
@@ -71,7 +71,10 @@ Open `http://localhost:7777/`.
 ├── mesa_raw_slabs.jpeg              ← NEW (Especial: raw walnut slabs)
 ├── mesa_round_epi.jpeg              ← NEW (Sala: round coffee table with epoxy)
 ├── mesa_sala.jpeg
-└── mesa_sillas.jpeg
+├── mesa_sillas.jpeg
+├── silla_asiento.jpeg               ← NEW (Especial: chair seat close-up)
+├── silla_completa.jpeg              ← NEW (Especial: completed chair)
+└── banco_jardin.jpeg                ← NEW (Exterior: outdoor wooden bench)
 ```
 
 ---
