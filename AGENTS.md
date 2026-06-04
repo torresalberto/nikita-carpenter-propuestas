@@ -6,8 +6,8 @@ All 4 polish phases finished. No placeholder content, no duplicate photos, real 
 ---
 
 ## Architecture
-- **Single file**: `index.html` (~1444 lines, inline CSS + JS). No framework, no build step.
-- **13 JPEG photos** in project root, referenced by filename from the `rooms` JS object.
+- **Single file**: `index.html` (~1495 lines, inline CSS + JS). No framework, no build step.
+- **16 JPEG photos** in project root, referenced by filename from the `rooms` JS object.
 - **5 room categories**: `sala`, `comedor`, `oficina`, `exterior`, `especial` — hardcoded in `rooms` object.
 - **Lightbox**: photo cards in the room overlay attach `openLightbox()` via `card.querySelector('img').addEventListener('click', …)`. If the lightbox won't open, check this event binding is not blocked by overlay z-index or a missing `lightbox` class toggle.
 - **Reveal animations**: most sections use the `.reveal` class with an `IntersectionObserver`. Hero text uses `@keyframes rise`. Both start at `opacity: 0` and only animate when in viewport.
@@ -32,8 +32,8 @@ Note: reveal-on-scroll elements will be hidden in headless captures because ther
 
 ## Key Data
 - **`rooms` object**: defines per-room `title`, `sub`, and `[{src, name}]` photo array. This is the only place to add/remove/reassign photos.
-- **`const wa` (line ~1269)**: real WhatsApp number `5216144579884` (digits only, no `+`).
-  - Also hardcoded in the nav link (line ~1065) and the footer CTA (line ~1210).
+- **`const wa` (line ~1402)**: real WhatsApp number `5216144579884` (digits only, no `+`).
+  - Also hardcoded in the nav link and the footer CTA.
   - Two more links (`window.open(...)` and `lightboxWa.href`) build dynamically from `wa` — no manual change needed.
 - **Server PID tracking**: none; the `python3 -m http.server` process is foreground by default. Use `pkill -f 'http.server 7777'` to stop.
 
@@ -43,14 +43,14 @@ Note: reveal-on-scroll elements will be hidden in headless captures because ther
 
 | Room     | Photos (count) | Names |
 |----------|----------------|-------|
-| `sala`     | 2 | Mesa de Centro — Forma Orgánica · Mesa Redonda — Pieza de Autor |
-| `comedor`  | 4 | Mesa Familiar — Base X · Mesa Familiar — Con Sillas · Mesa Mediana — Relleno de Resina · **Mesa de Comedor — Madera Maciza** |
+| `sala`     | 3 | Mesa de Centro — Forma Orgánica · Mesa Redonda — Pieza de Autor · Mesa Round — Tronco con Resina |
+| `comedor`  | 4 | Mesa Familiar — Base X · Mesa Familiar — Con Sillas · Mesa Mediana — Relleno de Resina · Mesa de Comedor — Madera Maciza |
 | `oficina`  | 3 | Escritorio Ejecutivo · Mesa de Oficina — Base T · Mesa Compacta |
-| `exterior` | 2 | Mesa de Jardín · Mesa de Patio |
-| `especial` | 2 | Mesa River — Resina Azul · Mesa Raw — Madera en Bruto |
-| **Total**  | **13** | matches the `13 PIEZAS` stat in the house-scale section |
+| `exterior` | 3 | Mesa de Jardín · Mesa de Patio · Cocina Exterior — Superficie de Nogal |
+| `especial` | 3 | Mesa River — Resina Azul · Mesa Raw — Madera en Bruto · Láminas de Parota — Materias Primas |
+| **Total**  | **16** | matches the `16 PIEZAS` stat in the house-scale section |
 
-**Rule enforced:** no photo appears in more than one room. Every filename in `rooms.photos[].src` is unique across the whole object (verified by `grep -oE "src: '[^']+'" index.html | sort -u | wc -l` → 13).
+**Rule enforced:** no photo appears in more than one room. Every filename in `rooms.photos[].src` is unique across the whole object (verified by `grep -oE "src: '[^']+'" index.html | sort -u | wc -l` → 16).
 
 ---
 
@@ -67,25 +67,26 @@ Note: reveal-on-scroll elements will be hidden in headless captures because ther
 ## File Map
 ```
 /home/alb/projects/free-websites/Nikita_carpenter/
-├── index.html                       (1444 lines, the whole site)
+├── index.html                       (1495 lines, the whole site)
 ├── AGENTS.md                        (this file)
+├── cocina_exterior.jpeg             ← NEW (Exterior: outdoor kitchen counter)
 ├── mesa_chica.jpeg
 ├── mesa_exterior.jpeg
 ├── mesa_irregular.jpeg
 ├── mesa_jardin.jpeg
-├── mesa_madera.jpeg                 ← now used in `comedor` (was previously unused)
+├── mesa_madera.jpeg
 ├── mesa_madera_sala_chica.jpeg
 ├── mesa_mediana.jpeg
 ├── mesa_negro.jpeg
 ├── mesa_ofi.jpeg
 ├── mesa_oficina.jpeg
 ├── mesa_raw.jpeg
+├── mesa_raw_slabs.jpeg              ← NEW (Especial: raw walnut slabs)
+├── mesa_round_epi.jpeg              ← NEW (Sala: round coffee table with epoxy)
 ├── mesa_sala.jpeg
 ├── mesa_sillas.jpeg
-├── screenshots/                     (original reference renders)
-└── screenshots_v2/                  (post-polish verification renders)
-    ├── 01-hero.png
-    └── 02-house-stats.png
+├── screenshots/
+└── screenshots_v2/
 ```
 
 ---
@@ -95,11 +96,11 @@ The site is fully static — no build step, no backend. Any static host works:
 - **Netlify**: drag-drop the folder, or `netlify deploy --dir=. --prod`.
 - **Vercel**: `vercel --prod` in the folder.
 - **GitHub Pages**: push to `gh-pages` branch, enable Pages in repo settings.
-- **Plain FTP**: upload `index.html` + the 13 JPEGs to web root.
+- **Plain FTP**: upload `index.html` + the 16 JPEGs to web root.
 
 Before deploying, sanity-check:
 1. `grep "5216144579884" index.html` returns 3 hits (nav, footer, `const wa`).
 2. `grep "52XXXXXXXXXX" index.html` returns 0 hits.
 3. `grep -oE "src: '[^']+'" index.html | sort | uniq -d` returns nothing (no duplicate photos).
-4. All 13 JPEGs are present in the deployed directory.
+4. All 16 JPEGs are present in the deployed directory.
 
