@@ -1093,14 +1093,11 @@ body::before {
 
 /* ─── Taller status badge (production) ─── */
 .prop-badge {
-  position: fixed;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 10px;
+  margin: calc(60px + 5rem) auto 1.5rem;
   padding: 8px 18px;
   background: rgba(20, 14, 8, 0.92);
   border: 1px solid var(--gold, #d4a574);
@@ -1225,17 +1222,17 @@ body::before {
 </head>
 <body>
 
-<!-- TALLER STATUS BADGE (production) -->
-<div class="prop-badge" aria-label="Estado del taller">
-  <span class="prop-badge__num">●</span>
-  <span class="prop-badge__label">ACEPTAMOS ENCARGOS</span>
-</div>
-
 <!-- ─── NAV ─── -->
 <nav class="nav">
   <a href="#" class="nav-brand">Nikita<span class="dot"></span>Carpenter</a>
   <a href="https://wa.me/5216144579884" target="_blank" class="nav-cta">WhatsApp</a>
 </nav>
+
+<!-- TALLER STATUS BADGE (production) -->
+<div class="prop-badge" aria-label="Estado del taller">
+  <span class="prop-badge__num">●</span>
+  <span class="prop-badge__label">ACEPTAMOS ENCARGOS</span>
+</div>
 
 <!-- ─── HERO ─── -->
 <section class="hero">
