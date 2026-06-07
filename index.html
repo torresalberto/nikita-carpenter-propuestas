@@ -1968,12 +1968,11 @@ const navCta = document.querySelector('.nav-cta');
 if (navCta) navCta.addEventListener('click', () => trackWa('nav', 'general'));
 
 // ── Google Analytics 4 (gtag.js) ──
-// Replace G-XXXXXXXXXX with the real Measurement ID once the user
-// sets up the GA4 property for nikita.albto.me (see AGENTS.md).
+// Measurement ID: G-B4MP52TRCY (property: nikita.albto.me).
 window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
 gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXXX');
+gtag('config', 'G-B4MP52TRCY');
 
 // ── WhatsApp event helper (called by photo cards, lightbox, nav, faq, footer) ──
 function trackWa(source, label) {
@@ -1990,6 +1989,6 @@ function trackWa(source, label) {
 </script>
 
 <!-- GA4 loader (deferred) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B4MP52TRCY"></script>
 </body>
 </html>
