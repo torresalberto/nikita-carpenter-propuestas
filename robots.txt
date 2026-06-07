@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /proposal-2-cuaderno/
+Disallow: /proposal-3-russian-craft/
+
+Sitemap: https://nikita.albto.me/sitemap.xml

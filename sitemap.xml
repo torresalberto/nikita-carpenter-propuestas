@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://nikita.albto.me/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://nikita.albto.me/mesa_raw_slabs.jpeg</image:loc>
+      <image:title>Láminas de parota en bruto — materia prima del taller</image:title>
+      <image:caption>Madera de parota en bruto en el taller de Nikita en Chihuahua, México.</image:caption>
+    </image:image>
+  </url>
+</urlset>
