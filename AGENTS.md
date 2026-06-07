@@ -1,13 +1,13 @@
 # Nikita Carpenter — Portfolio Website
 
 ## Status: ✅ PRODUCTION-READY (SEO + analytics wired, awaiting GA4 / GSC handoff)
-All polish phases finished. Production SEO + schema + sitemap + robots + GA4 (placeholder) + GSC verification meta all in place. Two demo proposals (proposal-2-cuaderno, proposal-3-russian-craft) are marked `noindex` so search engines only see the canonical `index.html`. Last reviewed: 2026-06-07.
+All polish phases finished. Production SEO + schema + sitemap + robots + GA4 (placeholder) + GSC verification meta all in place. Proposals 2 and 3 are archived under `archive/` (preserved in repo + git history, not deployed to production). Only the canonical `index.html` is the live site. Last reviewed: 2026-06-07.
 
 ---
 
 ## Production URL
-- **Live site**: `https://nikita.albto.me/` (a2hosting, deployed via repo's "secret action" deploy scripts).
-- **GitHub Pages demos** (noindex, not for SEO): `https://torresalberto.github.io/nikita-carpenter-propuestas/proposal-2-cuaderno/`, `…/proposal-3-russian-craft/`.
+- **Live site**: `https://nikita.albto.me/` (a2hosting, deployed via repo's "secret action" deploy scripts). **This is the only site that should ever be live.** Proposals 2 and 3 are archived.
+- **GitHub Pages demo** (auto-rebuilt from `main`): `https://torresalberto.github.io/nikita-carpenter-propuestas/` (also shows the production build; the old `/proposal-2-cuaderno/` and `/proposal-3-russian-craft/` paths are gone).
 
 ---
 
@@ -127,7 +127,7 @@ This means some photo cards display content that does not match their caption. T
 ├── index.html                       (~1966 lines, the whole site — PRODUCTION)
 ├── AGENTS.md                        (this file)
 ├── sitemap.xml                      ← NEW: only canonical https://nikita.albto.me/ + 1 image
-├── robots.txt                       ← NEW: allows /, disallows /proposal-2/, /proposal-3/, points to sitemap
+├── robots.txt                       ← allows /, disallows /archive/, points to sitemap
 ├── banco_jardin.jpeg                ← NEW (Exterior: outdoor wooden bench)
 ├── cocina_exterior.jpeg             ← NEW (Exterior: outdoor kitchen counter)
 ├── mesa_chica.jpeg
@@ -149,12 +149,13 @@ This means some photo cards display content that does not match their caption. T
 ├── silla_completa.jpeg              ← NEW (Especial: completed chair)
 ├── screenshots/
 ├── screenshots_v2/
-├── proposal-2-cuaderno/             ← demo, noindex (NOT the production site)
-│   ├── index.html                   (noindex meta added)
-│   └── AGENTS.md
-└── proposal-3-russian-craft/        ← demo, noindex (NOT the production site)
-    ├── index.html                   (noindex meta added)
-    └── AGENTS.md
+└── archive/                         ← ARCHIVED proposals (not deployed to production)
+    ├── proposal-2-cuaderno/         (noindex meta; preserved for reference)
+    │   ├── index.html
+    │   └── AGENTS.md
+    └── proposal-3-russian-craft/    (noindex meta; preserved for reference)
+        ├── index.html
+        └── AGENTS.md
 ```
 
 ---
@@ -167,8 +168,8 @@ The site is fully static — no build step, no backend.
 - **After my push** the user will: (1) trigger the secret-action deploy, (2) configure the GA4 property for `nikita.albto.me`, (3) add the domain to Google Search Console and submit `sitemap.xml`. Once those real IDs are known, the user pastes them into the 3 GA4 places and the 1 GSC place in `index.html` (see "GA4 + GSC" above) and pushes again.
 
 **Demo** (GitHub Pages):
-- The 3 proposals are published at `https://torresalberto.github.io/nikita-carpenter-propuestas/{,proposal-2-cuaderno/,proposal-3-russian-craft/}`.
-- Only the root `index.html` (this one) is indexable; the two subfolders carry `noindex,nofollow` so search engines don't treat the demos as duplicates of the canonical site.
+- The repo root is published at `https://torresalberto.github.io/nikita-carpenter-propuestas/` (auto-rebuilt from `main`). The old `/proposal-2-cuaderno/` and `/proposal-3-russian-craft/` paths are gone (the folders moved to `archive/`).
+- Only the root `index.html` (this one) is indexable. The archive/ subfolders carry `noindex,nofollow` so search engines don't treat them as duplicates of the canonical site.
 
 Before deploying, sanity-check:
 1. `grep "5216144579884" index.html` returns 5 hits (nav, footer, faq, const wa, plus the wa.me link).

@@ -20,22 +20,25 @@ Tres propuestas de sitio web para Nikita Carpenter, el carpintero de CDMX. Cada 
 
 ```
 Nikita_carpenter/
-├── index.html                       ← Propuesta 01 (Diario de Taller)
-├── mesa_*.jpeg                      ← 13 fotos compartidas
+├── index.html                       ← Propuesta 01 (Diario de Taller) — PRODUCCIÓN
+├── mesa_*.jpeg                      ← 19 fotos compartidas
 ├── AGENTS.md                        ← Documentación de la propuesta 01
-├── proposal-2-cuaderno/           ← Propuesta 02
-│   ├── index.html
-│   ├── AGENTS.md
-│   └── mesa_*.jpeg
-├── proposal-3-russian-craft/            ← Propuesta 03
-│   ├── index.html
-│   ├── AGENTS.md
-│   └── mesa_*.jpeg
-├── screenshots/                     ← Capturas de referencia (propuesta 01)
-├── screenshots_v2/                  ← Capturas post-pulido (propuesta 01)
+├── CLAUDE.md
 ├── README.md                        ← Este archivo
 ├── DEPLOY.md                        ← Cómo subir a GitHub Pages
-└── .gitignore
+├── sitemap.xml                      ← SEO sitemap (canonical URL only)
+├── robots.txt                       ← /allow, /archive/ disallow
+├── screenshots/                     ← Capturas de referencia (propuesta 01)
+├── screenshots_v2/                  ← Capturas post-pulido (propuesta 01)
+└── archive/                         ← ARCHIVADAS (no se despliegan a producción)
+    ├── proposal-2-cuaderno/         ← Propuesta 02 (preservada para referencia)
+    │   ├── index.html
+    │   ├── AGENTS.md
+    │   └── mesa_*.jpeg
+    └── proposal-3-russian-craft/    ← Propuesta 03 (preservada para referencia)
+        ├── index.html
+        ├── AGENTS.md
+        └── mesa_*.jpeg
 ```
 
 ---

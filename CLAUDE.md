@@ -1,7 +1,7 @@
 # Nikita Carpenter — Portfolio Website
 
 **Client:** Nikita (custom woodworker, originally from Moscow, based in Mexico)
-**Status:** ✅ Production-ready (SEO + analytics + sitemap + robots wired; awaiting GA4 / GSC ID handoff)
+**Status:** ✅ Production-ready (SEO + analytics + sitemap + robots wired; awaiting GA4 / GSC ID handoff). Proposals 2 and 3 archived under `archive/` (not deployed).
 **Stack:** Single HTML file (inline CSS + JS)
 **Repo:** `git`
 **Production URL:** `https://nikita.albto.me/`
@@ -17,17 +17,18 @@ Nikita_carpenter/
 ├── DEPLOY.md               (deploy instructions)
 ├── README.md
 ├── CLAUDE.md               (this file)
-├── sitemap.xml             ← NEW: points only to canonical https://nikita.albto.me/
-├── robots.txt              ← NEW: allows /, disallows proposal-2/, proposal-3/
+├── sitemap.xml             ← points only to canonical https://nikita.albto.me/
+├── robots.txt              ← allows /, disallows /archive/
 ├── mesa_*.jpeg             (19 photos total)
 ├── silla_*.jpeg
 ├── cocina_*.jpeg
 ├── banco_*.jpeg
-├── proposal-2-cuaderno/    (demo, noindex — NOT the production site)
-├── proposal-3-russian-craft/ (demo, noindex — NOT the production site)
 ├── screenshots/            (visual QA reference)
 ├── screenshots_v2/
-└── screenshots_live/
+├── screenshots_live/
+└── archive/                ← ARCHIVED proposals (NOT deployed; preserved for reference)
+    ├── proposal-2-cuaderno/    (noindex meta)
+    └── proposal-3-russian-craft/ (noindex meta)
 ```
 
 ## Architecture
@@ -72,7 +73,7 @@ Static — any host works.
 4. `grep -oE "src: '[^']+'" index.html | sort | uniq -d` → nothing (no duplicate photo filenames)
 5. `grep -c '"@type": "ImageObject"' index.html` → 19
 6. `ls sitemap.xml robots.txt` → both present at root
-7. prop-2 / prop-3 subfolders still carry `<meta name="robots" content="noindex,nofollow">`
+7. `archive/proposal-2-cuaderno/index.html` and `archive/proposal-3-russian-craft/index.html` still carry `<meta name="robots" content="noindex,nofollow">`
 
 ## Pending user actions (after my push)
 1. Trigger the secret-action deploy to a2hosting.
